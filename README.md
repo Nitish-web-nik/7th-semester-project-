@@ -1,74 +1,83 @@
-# DETECTION OF PHISHING WEBSITES USING MACHINE LEARNING 
+# 🕵️‍♂️ DETECTION OF PHISHING WEBSITES USING MACHINE LEARNING 🧠💻
 
-## Objective
-Phishing website is one of the internet security problems that target the human vulnerabilities rather than software vulnerabilities. It can be described as the process of attracting online users to obtain their sensitive information such as usernames and passwords.The objective of this project is to train machine learning models and deep neural network on the dataset created to predict phishing websites. Both phishing and legitimate URLs of websites are gathered to form a dataset and from them required URL and website content-based features are extracted. The performance level of each model is measured and compared.
+## 🎯 Objective
 
-## Data Collection
-**phishing URL Dataset**
-The set of phishing URLs are collected from opensource service called **PhishTank**. This service provide a set of phishing URLs in multiple formats like csv, json etc. that gets updated hourly. To download the data: https://www.phishtank.com/developer_info.php. From this dataset, 5000 random phishing URLs are collected to train the ML models.
+Phishing websites are like the online equivalent of a wolf in sheep's clothing, trying to trick you into giving away your precious secrets—like your username and password—by pretending to be something they're not. It's a classic con game, but in the digital world! 🎭
 
-**legitimate URL Dataset**
-The legitimate URLs are obatined from the open datasets of the University of New Brunswick, https://www.unb.ca/cic/datasets/url-2016.html. This dataset has a collection of benign, spam, phishing, malware & defacement URLs. Out of all these types, the benign url dataset is considered for this project. From this dataset, 5000 random legitimate URLs are collected to train the ML models.
+The mission? To train some seriously smart machine learning models and deep neural networks to spot these shady sites before they can steal your info. We gathered a bunch of both phishing and legitimate URLs to create a dataset, extracted all the juicy features, and then put our models to the test. May the best model win! 🏆
 
-The above mentioned datasets are uploaded to (https://github.com/goodydeves/PhishBuster/tree/master/ML%20work/DataSets)' folder of this repository.
+## 🗂️ Data Collection
 
-## Feature Extraction
-The below mentioned category of features are extracted from the URL data:
+**Phishing URL Dataset** 🐟
+We went phishing (but not the fun kind) and snagged ourselves a set of URLs from the fine folks at **PhishTank**. They generously provide a regularly updated list of phishing URLs in all sorts of formats. We grabbed 5,000 random phishing URLs from this treasure trove to train our machine learning models. You can check out PhishTank's catch of the day [here](https://www.phishtank.com/developer_info.php).
 
-1.   Address Bar based Features 
-         In this category 9 features are extracted.
-2.   Domain based Features
-         In this category 4 features are extracted.
-3.   HTML & Javascript based Features
-         In this category 4 features are extracted.
+**Legitimate URL Dataset** 🛡️
+Of course, we needed some good, upstanding URLs to balance things out. For that, we turned to the University of New Brunswick's dataset, which is like a URL farm with all sorts of benign, spammy, phishy, malware-laden, and defacement-prone links. We cherry-picked 5,000 benign URLs to teach our models how to tell friend from foe. More on that dataset [here](https://www.unb.ca/cic/datasets/url-2016.html).
 
+Both datasets are safely stashed in the [DataSets folder](https://github.com/goodydeves/PhishBuster/tree/master/ML%20work/DataSets) of this repository, ready for action.
 
-So, all together 17 features are extracted from the 10,000 URL dataset and are stored in file in the DataFiles folder.
-The features are referenced from the https://archive.ics.uci.edu/ml/datasets/Phishing+Websites.
+## 🔍 Feature Extraction
 
-## Models & Training
+To give our models a fighting chance, we armed them with 17 powerful features extracted from the URL data. Think of these features as the clues our machine detectives use to sniff out the bad guys:
 
-Before stating the ML model training, the data is split into 80-20 i.e., 8000 training samples & 2000 testing samples. From the dataset, it is clear that this is a supervised machine learning task. There are two major types of supervised machine learning problems, called classification and regression.
+1. **Address Bar Based Features** 🛑
+   - 9 features that focus on what’s happening in the URL’s address bar. Is that a suspiciously long domain name, or maybe a shady-looking subdomain? We’ve got it covered.
 
-This data set comes under classification problem, as the input URL is classified as phishing (1) or legitimate (0). The supervised machine learning models (classification) considered to train the dataset in this project are:
+2. **Domain Based Features** 🌐
+   - 4 features that dig into the domain itself. Is it registered to a sketchy IP address? Maybe it’s a baby domain, just a few days old. 🚼
 
-* Decision Tree
-* Random Forest
-* Multilayer Perceptrons
-* XGBoost
-* Autoencoder Neural Network
-* Support Vector Machines
+3. **HTML & Javascript Based Features** 💻
+   - 4 features that peek under the hood, checking the HTML and Javascript for anything that looks like it’s up to no good. 🚨
 
-All these models are trained on the dataset and evaluation of the model is done with the test dataset. 
+All these features combined give our models the info they need to make the right call. You can dive deeper into the feature set over at the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Phishing+Websites).
 
-### **NOTE** ###
-The model XGBoost has the highest accuracy and also The listed (feature extraction) to validate URLs were integrated to a webapplication using django framework to effeciently detect phishing URL links.
+## 🧠 Models & Training
 
-**Tools Used**
-->Jupyter notebook 
-->Pycharm 
-->Postman
-->Chrome Browser 
+Before we let our models loose on the data, we split it into an 80/20 ratio—because life is all about balance, right? 🧘‍♂️ That’s 8,000 samples for training and 2,000 for testing. Since this is a supervised machine learning task, we’re classifying URLs as either phishing (1) or legitimate (0). The models we trained include:
 
+- **Decision Tree** 🌳
+- **Random Forest** 🌲
+- **Multilayer Perceptrons** 🤹‍♂️
+- **XGBoost** 🚀
+- **Autoencoder Neural Network** 🤖
+- **Support Vector Machines** 🏇
 
-->>> Presentation
+After the training montage (cue the Rocky music 🥊), we evaluated each model’s performance. Spoiler alert: **XGBoost** took home the gold for highest accuracy! 🥇 We even integrated the best features into a web application using Django to efficiently catch phishing URLs in the wild.
 
-The short video presentaion for this project named "Project Summary.mp4"
-The slide presentaion for this project is named "presentation slides.ppt" 
-The Write-up Documentation for this project is named "Chapter 1-5 DETECTING PHISHING WEBSITES USING MACHINE LEARNING.pdf"
+## 🛠️ Tools Used
 
+Our arsenal of tools included:
 
+- **Jupyter Notebook** 📓
+- **PyCharm** 🛠️
+- **Postman** 🚚
+- **Chrome Browser** 🌐
 
--> Webapplication 
-I created a Web application named "Phishbuster" to help Users Validate Website Links. Name of folder is "Project_Webapp.7z" 
+## 🎥 Presentations & More
 
+Here’s where you can find all the extras:
 
--> ML work 
-The ML work folder consist of "Dataset" and "Jupyter notebook of the project" as stated above 
-** Phishing Website Detection Training & Testing Models on Datasets.ipynb **
-** URL_Feature_Extraction_from_Datasets.ipynb **
+- **Project Summary Video** 🎬: "Project Summary.mp4"
+- **Slide Presentation** 📊: "presentation slides.ppt"
+- **Write-up Documentation** 📝: "Chapter 1-5 DETECTING PHISHING WEBSITES USING MACHINE LEARNING.pdf"
 
--> Next Steps
-This project can be further extended to creation of browser extention (for chrome, brave, opera mini etc) to help Users by adding it to browser extension to detect Phishing URLs .
+## 🌐 Web Application: PhishBuster
 
+To take things to the next level, I created a web application named "PhishBuster" to help users validate website links. You can find it in the "Project_Webapp.7z" folder. Now, everyone can fend off phishing attacks like a pro! 🦸‍♂️🦸‍♀️
 
+## 💻 ML Work
+
+The **ML Work** folder contains:
+
+- **Dataset** 📂
+- **Jupyter Notebook** of the project:
+  - **Phishing Website Detection Training & Testing Models on Datasets.ipynb**
+  - **URL Feature Extraction from Datasets.ipynb**
+
+## 🚀 Next Steps
+
+What’s next? Well, the sky's the limit! 🌟 This project could easily be expanded into a browser extension for Chrome, Brave, Opera Mini, and more. Imagine a world where you could instantly spot phishing URLs just by browsing—no more worrying about that suspicious email from "BankofYourMoney.com"! 😜
+
+---
+
+Happy Phish Hunting! 🎣🔍
